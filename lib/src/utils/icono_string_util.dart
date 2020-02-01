@@ -10,6 +10,7 @@ final _icons = <String, IconData>{
   'tune': Icons.tune,
   'done': Icons.done,
   'autorenew': Icons.autorenew,
+  'view_carousel': Icons.view_carousel
 };
 
 Icon getIcon(String nombreIcono) {

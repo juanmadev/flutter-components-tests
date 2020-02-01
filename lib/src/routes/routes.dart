@@ -1,4 +1,6 @@
+import 'package:componentes/src/pages/animationview_page.dart';
 import 'package:componentes/src/pages/custom_page.dart';
+import 'package:componentes/src/pages/hero_page.dart';
 import 'package:componentes/src/pages/sliding_up_page.dart';
 import 'package:flutter/material.dart';
 
@@ -23,5 +25,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'list': (BuildContext context) => ListaPage(),
     'custom': (BuildContext context) => CustomPage(),
     'slidingup': (BuildContext context) => SlidingUpPage(),
+    'animationview': (BuildContext context) => AnimationViewPage(),
+    'hero': (BuildContext context) => HeroPage(),
   };
 }

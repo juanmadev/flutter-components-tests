@@ -45,6 +45,11 @@
             "ruta": "slidingup",
             "icon": "autorenew",
             "texto": "Sliding Up sample"
+        },
+        {
+            "ruta": "animationview",
+            "icon": "view_carousel",
+            "texto": "Animation examples"
         }
     ]
 }

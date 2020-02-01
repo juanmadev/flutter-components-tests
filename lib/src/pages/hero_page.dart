@@ -1,21 +1,26 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-class SlidingUpPage extends StatefulWidget {
-  SlidingUpPage({Key key}) : super(key: key);
+class HeroPage extends StatefulWidget {
+  final String item;
+  HeroPage({Key key, @required this.item}) : super(key: key);
 
   @override
-  _SlidingUpPageState createState() => _SlidingUpPageState();
+  _HeroPageState createState() => _HeroPageState();
 }
 
-class _SlidingUpPageState extends State<SlidingUpPage> {
+class _HeroPageState extends State<HeroPage> {
+  // final String item;
+
+  // In the constructor, require a Todo.
+  // _HeroPageState({Key key, @required this.item}) : super();
+
   bool _renderPanel = true;
   EdgeInsets _paneMargin;
   Size _screenSize;
   double _width;
   double _height;
+  String _element;
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +32,11 @@ class _SlidingUpPageState extends State<SlidingUpPage> {
     _screenSize = MediaQuery.of(context).size;
     _width = _screenSize.width;
     _height = _screenSize.height;
+    _element = widget.item;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ejemplo SideUp Panel'),
+        title: Text('Ejemplo Hero ${widget.item} .'),
       ),
       body: _getBody(radius),
     );
@@ -51,28 +57,31 @@ class _SlidingUpPageState extends State<SlidingUpPage> {
 
   Widget _getBody(BorderRadiusGeometry radius) {
     return SlidingUpPanel(
-        parallaxEnabled: true,
-        borderRadius: radius,
-        // minHeight: 100.0,
-        maxHeight: (70 * _height / 100),
-        renderPanelSheet: _renderPanel,
-        collapsed: Container(
-          decoration:
-              BoxDecoration(color: Colors.blueGrey, borderRadius: radius),
-          child: Center(child: _crearCheckbox()),
-        ),
-        onPanelOpened: _panelChange,
-        // defaultPanelState: PanelState.OPEN,
-        // panel: _crearPanel(),
-        panelBuilder: (ScrollController sc) => _scrollingList(sc),
-        body: Container(
+      parallaxEnabled: true,
+      borderRadius: radius,
+      // minHeight: 100.0,
+      maxHeight: (70 * _height / 100),
+      renderPanelSheet: _renderPanel,
+      collapsed: Container(
+        decoration: BoxDecoration(color: Colors.blueGrey, borderRadius: radius),
+        child: Center(child: _crearCheckbox()),
+      ),
+      onPanelOpened: _panelChange,
+      // defaultPanelState: PanelState.OPEN,
+      // panel: _crearPanel(),
+      panelBuilder: (ScrollController sc) => _scrollingList(sc),
+      body: Hero(
+        tag: 'card$_element',
+        child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/strawberries.jpg"),
+              image: AssetImage("assets/galaxystock.jpg"),
               fit: BoxFit.cover,
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   _panelChange() {
