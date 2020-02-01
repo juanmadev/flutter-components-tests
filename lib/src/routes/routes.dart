@@ -26,6 +26,6 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'custom': (BuildContext context) => CustomPage(),
     'slidingup': (BuildContext context) => SlidingUpPage(),
     'animationview': (BuildContext context) => AnimationViewPage(),
-    'hero': (BuildContext context) => HeroPage(),
+    'hero': (BuildContext context) => HeroPage(item: 'default'),
   };
 }
